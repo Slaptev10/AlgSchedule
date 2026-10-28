@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Расписание · Алгоритмика Абакан</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <span class="logo">Алгоритмика</span>
+      <span class="topbar-sub">Расписание Сергея Лаптева · Абакан</span>
+      <button class="btn btn-ghost" id="todayBtn" type="button">Сегодня</button>
+    </header>
+
+    <section class="hero" aria-label="Итоги месяца">
+      <div class="hero-main">
+        <div class="month-nav">
+          <button class="round" id="prevMonth" type="button" aria-label="Предыдущий месяц">‹</button>
+          <select id="monthSelect" aria-label="Месяц"></select>
+          <select id="yearSelect" aria-label="Год"></select>
+          <button class="round" id="nextMonth" type="button" aria-label="Следующий месяц">›</button>
+        </div>
+        <h1 class="hero-title">Проведено уроков за месяц</h1>
+        <div class="hero-count">
+          <span class="hero-num" id="doneCount">0</span>
+          <span class="hero-of">из <b id="planCount">0</b> по расписанию</span>
+        </div>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <ul class="chips-row">
+          <li><b id="leftCount">0</b> осталось</li>
+          <li><b id="cancelCount">0</b> отменено</li>
+          <li><b id="visitCount">0</b> посещений</li>
+        </ul>
+      </div>
+      <figure class="hero-art">
+        <img src="photo.jpg" alt="Преподаватель Сергей Лаптев">
+        <figcaption><b>Лаптев Сергей</b>Преподаватель</figcaption>
+      </figure>
+    </section>
+
+    <main class="layout">
+      <section class="card calendar" aria-label="Календарь">
+        <div class="weekdays" id="weekdays"></div>
+        <div class="grid" id="calendarGrid"></div>
+        <ul class="legend">
+          <li><span class="dot dot-plan"></span>по расписанию</li>
+          <li><span class="dot dot-done"></span>проведён</li>
+          <li><span class="dot dot-cancel"></span>отменён</li>
+        </ul>
+      </section>
+
+      <section class="card day" aria-live="polite">
+        <div class="day-head">
+          <h2 id="dayTitle"></h2>
+          <span class="day-count" id="dayCount"></span>
+        </div>
+        <div id="lessons"></div>
+      </section>
+    </main>
+
+    <section class="card courses" aria-label="По курсам">
+      <h2>Итоги по курсам</h2>
+      <div id="courseList"></div>
+      <div id="cancelList" class="cancel-list"></div>
+    </section>
+
+    <footer class="footer">Отметки сохраняются в этом браузере</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
